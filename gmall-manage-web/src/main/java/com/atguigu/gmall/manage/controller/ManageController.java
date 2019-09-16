@@ -49,4 +49,33 @@ public class ManageController {
         List<BaseAttrValue> attrValueList = baseAttrInfo.getAttrValueList();
         return  attrValueList;
     }
+
+    @PostMapping("saveSpuInfo")
+    public String savaSpuInfo(@RequestBody SpuInfo spuInfo){
+        manageService.saveSpuInfo(spuInfo);
+        return"success";
+    }
+
+    @PostMapping("baseSaleAttrList")
+    public List<BaseSaleAttr> getBaseSaleAttrList(){
+
+        return manageService.getBaseSaleAttrList();
+    }
+
+   @GetMapping("spuList")
+    public List<SpuInfo> getSpuList(String catalog3Id){
+
+        return manageService.getSpuList(catalog3Id);
+   }
+
+
+   @GetMapping("spuImageList")
+    public List<SpuImage> getSpuImageList(String spuId){
+    return manageService.getSpuImageList(spuId);
+   }
+
+   @GetMapping("spuSaleAttrList")
+    public List<SpuSaleAttr> getSpuSaleAttrList(String spuId){
+      return manageService.getSpuSaleAttrList(spuId);
+   }
 }
